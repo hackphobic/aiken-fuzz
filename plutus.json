@@ -1,0 +1,81 @@
+{
+  "preamble": {
+    "title": "hackphobic/aiken-fuzz",
+    "description": "Aiken contracts for project 'hackphobic/aiken-fuzz'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.6+18054ee"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "my_script.hello_world.spend",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/my_script~1Datum"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/my_script~1Redeemer"
+        }
+      },
+      "compiledCode": "59013501010032323232323225333002323232323253330073370e900118041baa001132332253323300b3001300c375400c26464a66602060240042a66601a6006601c6ea80104c8c94ccc03ccdc79bae3013301137540149110548656c6c6f00100214a0664600200244a666020600c002290000a99980819b8748008004520021337006600400466e00005200333002002337000029000a40146644646600200200644a66602800229404cc894ccc04ccdc78010028a51133004004001375c602a002602c0026eb0c044c048c048c048c048c048c048c048c048c03cdd50049bae3011300f37546022601e6ea80105858dd7180800098069baa006370e90000b18060009806180680098049baa00116300a300b0033009002300800230080013004375400229309b2b2b9a5573aaae7955cfaba157441",
+      "hash": "92c289f8c7f2c5d7d469cf42f37f4b0f9d90cff6adfe9dac9e5ccfd1"
+    },
+    {
+      "title": "my_script.hello_world.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "59013501010032323232323225333002323232323253330073370e900118041baa001132332253323300b3001300c375400c26464a66602060240042a66601a6006601c6ea80104c8c94ccc03ccdc79bae3013301137540149110548656c6c6f00100214a0664600200244a666020600c002290000a99980819b8748008004520021337006600400466e00005200333002002337000029000a40146644646600200200644a66602800229404cc894ccc04ccdc78010028a51133004004001375c602a002602c0026eb0c044c048c048c048c048c048c048c048c048c03cdd50049bae3011300f37546022601e6ea80105858dd7180800098069baa006370e90000b18060009806180680098049baa00116300a300b0033009002300800230080013004375400229309b2b2b9a5573aaae7955cfaba157441",
+      "hash": "92c289f8c7f2c5d7d469cf42f37f4b0f9d90cff6adfe9dac9e5ccfd1"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "VerificationKeyHash": {
+      "title": "VerificationKeyHash",
+      "dataType": "bytes"
+    },
+    "my_script/Datum": {
+      "title": "Datum",
+      "anyOf": [
+        {
+          "title": "Datum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "owner",
+              "$ref": "#/definitions/VerificationKeyHash"
+            }
+          ]
+        }
+      ]
+    },
+    "my_script/Redeemer": {
+      "title": "Redeemer",
+      "anyOf": [
+        {
+          "title": "Redeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "msg",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

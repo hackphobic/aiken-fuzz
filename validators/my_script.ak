@@ -1,6 +1,6 @@
 use aiken/collection/list
 use aiken/crypto.{VerificationKeyHash}
-use cardano/transaction.{OutputReference, Transaction}
+use cardano/transaction.{Transaction}
 
 pub type Datum {
   owner: VerificationKeyHash,
@@ -24,6 +24,8 @@ validator hello_world {
 
     let must_be_signed = list.has(self.extra_signatories, owner)
 
+    expect _n = fibonacci(5)
+
     and {
       must_say_hello,
       must_be_signed,
@@ -32,5 +34,13 @@ validator hello_world {
 
   else(_) {
     fail
+  }
+}
+
+fn fibonacci(n: Int) -> Int {
+  when n is {
+    0 -> 0
+    1 -> 1
+    _ -> fibonacci(n - 2) + fibonacci(n - 1)
   }
 }
